@@ -12,18 +12,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Descompactar e publicar projeto
+
+      - name: Instalar projeto
         shell: bash
         run: |
           set -euo pipefail
           test -f job-hunter-upload.zip
-          unzip -oq job-hunter-upload.zip -d .
-          test -f .github/workflows/job-hunter.yml
+
+          unzip -oq job-hunter-upload.zip -d . \
+            -x '.github/workflows/*'
+
           test -f requirements.txt
-          rm -f job-hunter-upload.zip .github/workflows/instalar.yml
+          test -f src/job_hunter/main.py
+
+          rm -f job-hunter-upload.zip
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add -A
-          git commit -m "feat: install international job hunter"
+          git commit -m "feat: install job hunter"
           git push origin HEAD:main
-          
