@@ -1,0 +1,29 @@
+
+name: Instalar International Job Hunter
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  instalar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descompactar e publicar projeto
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f job-hunter-upload.zip
+          unzip -oq job-hunter-upload.zip -d .
+          test -f .github/workflows/job-hunter.yml
+          test -f requirements.txt
+          rm -f job-hunter-upload.zip .github/workflows/instalar.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "feat: install international job hunter"
+          git push origin HEAD:main
+          
