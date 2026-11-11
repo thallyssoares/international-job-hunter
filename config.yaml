@@ -1,0 +1,38 @@
+profile:
+  target_titles:
+    - AI Engineer
+    - AI Solutions Architect
+    - GenAI Engineer
+    - Generative AI Engineer
+    - LLM Engineer
+    - Data Engineer
+    - AI Architect
+    - Senior AI Solutions Architect
+  title_terms: ["ai engineer", "artificial intelligence engineer", "ai solutions architect", "solutions architect ai", "genai engineer", "generative ai engineer", "llm engineer", "data engineer", "ai architect", "machine learning engineer"]
+  technologies: [Python, SQL, LangChain, LangGraph, MCP, "AI agents", "multi-agent", RAG, GCP, Snowflake, orchestration, APIs, "CI/CD", "data engineering"]
+  seniority_terms: [mid, mid-level, intermediate, senior, staff, lead, principal, architect]
+  employment_terms: [full-time, full time, contractor, contract, b2b, freelance]
+geography:
+  country: Brazil
+  country_code: BR
+  latam_terms: [LATAM, "Latin America", "South America", Brazil, Brasil]
+  worldwide_terms: [worldwide, "work from anywhere", anywhere, global]
+  incompatible_terms: ["US only", "USA only", "United States only", "Canada only", "Europe only", "EU only", "UK only", "must be based in the United States"]
+salary:
+  minimum_monthly_usd: 3000
+  include_undisclosed: true
+pipeline:
+  # Targeted search: each query is filtered for Brazilian applicants by the API.
+  himalayas_search_queries:
+    - AI Engineer
+    - GenAI Engineer
+    - LLM Engineer
+    - Data Engineer
+    - AI Architect
+    - Solutions Architect
+  max_himalayas_pages: 3
+  max_notifications: 10
+  max_description_chars: 50000
+  state_path: data/state.json
+  request_timeout_seconds: 25
+  max_retries: 2
